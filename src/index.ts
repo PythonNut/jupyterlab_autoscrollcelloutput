@@ -58,7 +58,7 @@ class ButtonAutoScrollCellOutput {
     }
  
     private handlerCellsChange(
-        cells: IObservableList<ICellModel>,
+        cells: CellList,
         changed_cells: IObservableList.IChangedArgs<ICellModel>): void {
         if (changed_cells.type == 'add') {
             each(changed_cells.newValues, (cellModel, idx) => {
