@@ -38,7 +38,7 @@ class ButtonAutoScrollCellOutput {
                 console.log('Extension jupyterlab_autoscrollcelloutput enabled for notebook:', panel.id);
                 button.addClass('selected');
             }
-            this.notebook.model!.metadata.set('autoscrollcelloutput', SET);
+            this.notebook.model!.setMetadata('autoscrollcelloutput', SET);
         };
 
         const button = new ToolbarButton({
@@ -64,8 +64,8 @@ class ButtonAutoScrollCellOutput {
             each(changed_cells.newValues, (cellModel, idx) => {
                 if (cellModel instanceof CodeCellModel) {
                     cellModel.outputs.changed.connect((output, arg) => {
-                        let autoScrollSet = this.notebook.model!.metadata.get('autoscrollcelloutput');
-                        if (['add', 'set'].includes(arg.type) && cellModel.metadata.get("scrolled") && autoScrollSet) {
+                        let autoScrollSet = this.notebook.model!.getMetadata('autoscrollcelloutput');
+                        if (['add', 'set'].includes(arg.type) && cellModel.getMetadata("scrolled") && autoScrollSet) {
                             // Find the widget for the model.
                             for (let cell of this.notebook.widgets) {
                                 if (cell instanceof CodeCell && cell.model == cellModel) {
