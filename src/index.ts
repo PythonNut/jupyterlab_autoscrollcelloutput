@@ -1,10 +1,10 @@
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application';
 import { IDisposable, DisposableDelegate } from '@lumino/disposable';
 import { ToolbarButton } from '@jupyterlab/apputils';
-import { ICellModel, CodeCellModel, CodeCell, CellList } from '@jupyterlab/cells';
+import { ICellModel, CodeCellModel, CodeCell } from '@jupyterlab/cells';
 import { IObservableList } from '@jupyterlab/observables';
 import { DocumentRegistry } from '@jupyterlab/docregistry';
-import { NotebookPanel, INotebookModel, Notebook } from '@jupyterlab/notebook';
+import { NotebookPanel, INotebookModel, Notebook, CellList } from '@jupyterlab/notebook';
 import { each } from '@lumino/algorithm';
 
 
